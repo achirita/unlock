@@ -48,10 +48,23 @@ var Game = (function () {
     },
     endGame: {
       backgroundColor: "#A4A4A4",
-      winText: "Awesome!",
-      lossText: "Ooppss...",
-      fontSize: "15%",
-      fontColor: "#E26D5C"
+      result: {
+        win: {
+          text: "Awesome!"
+        },
+        loss: {
+          text: "Ooppss..."
+        },
+        fontSize: "15%",
+        fontColor: "#E26D5C",
+        offsetX: "0%",
+        offsetY: "-20%"
+      },
+      nextLevel: {
+        text: "Next level: ",
+        fontSize: "5%",
+        fontColor: "#472D30"
+      }
     },
     circle: {
       color: "#E26D5C",
