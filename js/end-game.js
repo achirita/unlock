@@ -1,4 +1,4 @@
-var EndGame = (function(level, speed, viewport, options) {
+var EndGame = (function(viewport, options) {
 	"use strict";
 
   var stage;
@@ -17,8 +17,12 @@ var EndGame = (function(level, speed, viewport, options) {
     var displayText;
     if(result) {
       displayText = options.endGame.winText;
+			if(Game.level < Game.levelSettings.length - 1) {
+				Game.level++;
+			}
     } else {
       displayText = options.endGame.lossText;
+			Game.level--;
     }
 
     var text = Utils.createjs.createCenteredText(displayText,
@@ -38,4 +42,4 @@ var EndGame = (function(level, speed, viewport, options) {
 		destroy: destroy
 	};
 
-})(Game.level, Game.speed, Game.viewport, Game.options);
+})(Game.viewport, Game.options);

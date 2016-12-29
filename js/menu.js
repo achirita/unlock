@@ -1,4 +1,4 @@
-var Menu = (function(level, speed, viewport, options) {
+var Menu = (function(viewport, options) {
 	"use strict";
 
 	var stage;
@@ -37,6 +37,33 @@ var Menu = (function(level, speed, viewport, options) {
 		});
 		stage.addChild(playButton);
 
+		//create animated lines
+    var line = new createjs.Shape();
+		line.graphics.setStrokeStyle(options.connector.thickness, "round")
+			.beginStroke(options.connector.color);
+    stage.addChild(line);
+
+		var x1 = viewport.width;
+		var y1 = 0.6 * viewport.height;
+		var x2 = 0;
+		var y2 = 0.9 * viewport.height;
+
+		var command = line.graphics.moveTo(x1, y1)
+			.lineTo(x1, y1)
+			.command;
+		var t1 = createjs.Tween.get(command, {paused: true}).to({x: x2, y: y2}, 3000);
+
+		x1 = 0.6 * viewport.width;
+		y1 = -100;
+		x2 = viewport.width;
+		y2 = 0.8 * viewport.height;
+
+		command = line.graphics.moveTo(x1, y1)
+			.lineTo(x1, y1)
+			.command;
+		var t2 = createjs.Tween.get(command, {paused: true}).to({x: x2, y: y2}, 3000);
+		t1.play(t2);
+		t1.setPaused(false);
 	};
 
 	var destroy = function() {
@@ -49,4 +76,4 @@ var Menu = (function(level, speed, viewport, options) {
 		destroy: destroy
 	};
 
-})(Game.level, Game.speed, Game.viewport, Game.options);
+})(Game.viewport, Game.options);

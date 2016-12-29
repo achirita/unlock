@@ -1,4 +1,4 @@
-var ShowPattern = (function (level, speed, viewport, options) {
+var ShowPattern = (function (viewport, options) {
   "use strict";
 
   var stage;
@@ -10,8 +10,10 @@ var ShowPattern = (function (level, speed, viewport, options) {
     //create background
 		stage.addChild(Utils.createjs.createRectangle(0, 0, viewport.width, viewport.height, options.background.color));
 
+    //the number of vertices depends on the current level
+    var vertices = Game.levelSettings[Game.level].vertices;
     //ceate a circle for each polygon vertex and add it to stage
-    var vertices = Utils.getPolygonVertices(viewport.center, options.polygon.radius, options.polygon.vertices);
+    var vertices = Utils.getPolygonVertices(viewport.center, options.polygon.radius, vertices);
     for(var i = 0; i < vertices.length; i++) {
       stage.addChild(Utils.createjs.createCircle(vertices[i], options.circle.radius, options.circle.color));
     }
@@ -32,6 +34,8 @@ var ShowPattern = (function (level, speed, viewport, options) {
     //add the center point to the vertices array in order to generate the tweens easier
     vertices.unshift(viewport.center);
 
+    //the speed depends on the current level
+    var speed = Game.levelSettings[Game.level].speed;
     //generate tweens
     var command;
     for(var i = 0; i < vertices.length - 1; i++) {
@@ -67,4 +71,4 @@ var ShowPattern = (function (level, speed, viewport, options) {
     destroy: destroy
   };
 
-})(Game.level, Game.speed, Game.viewport, Game.options);
+})(Game.viewport, Game.options);

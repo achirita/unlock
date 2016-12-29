@@ -5,8 +5,19 @@ var Game = (function () {
 
   var stage;
   var view;
-  var level = 1;
-  var speed = 500;
+  var level = 0;
+  var levelSettings = [{speed: 800, vertices: 5},
+    {speed: 500, vertices: 5},
+    {speed: 200, vertices: 5},
+    {speed: 600, vertices: 6},
+    {speed: 400, vertices: 6},
+    {speed: 200, vertices: 6},
+    {speed: 600, vertices: 7},
+    {speed: 400, vertices: 7},
+    {speed: 200, vertices: 7},
+    {speed: 400, vertices: 8},
+    {speed: 300, vertices: 8},
+    {speed: 200, vertices: 8}];
   var viewport = {
     width: window.innerWidth,
     height: window.innerHeight,
@@ -52,7 +63,6 @@ var Game = (function () {
     },
     polygon: {
       radius: "40%",
-      vertices: 6
     }
   };
 
@@ -109,7 +119,7 @@ var Game = (function () {
 
   return {
     level: level,
-    speed: speed,
+    levelSettings: levelSettings,
     viewport: viewport,
     options: options,
     initialize: initialize,

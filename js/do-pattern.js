@@ -1,4 +1,4 @@
-var DoPattern = (function (level, speed, viewport, options) {
+var DoPattern = (function (viewport, options) {
   "use strict";
 
   var stage;
@@ -106,4 +106,4 @@ var DoPattern = (function (level, speed, viewport, options) {
     destroy: destroy
   };
 
-})(Game.level, Game.speed, Game.viewport, Game.options);
+})(Game.viewport, Game.options);
