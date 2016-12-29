@@ -10,7 +10,7 @@ var EndGame = (function(viewport, options) {
     //create background
     var background = Utils.createjs.createRectangle(0, 0, viewport.width, viewport.height, options.background.color);
     background.on("click", function() {
-      Game.changeView(Menu);
+      Game.changeView(ShowPattern);
     });
     stage.addChild(background);
 
