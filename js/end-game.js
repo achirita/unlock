@@ -22,7 +22,9 @@ var EndGame = (function(viewport, options) {
 			}
     } else {
       displayText = options.endGame.lossText;
-			Game.level--;
+			if(Game.level > 0) {
+				Game.level--;
+			}
     }
 
     var text = Utils.createjs.createCenteredText(displayText,
