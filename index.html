@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/show-pattern.js"></script>
+    <script src="js/do-pattern.js"></script>
+    <script src="js/end-game.js"></script>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <script>
+      Game.initialize("canvas");
+      Game.changeView(Menu);
+    </script>
+  </body>
+</html>
